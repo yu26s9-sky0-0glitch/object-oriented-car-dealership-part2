@@ -1,6 +1,6 @@
 package com.pluralsight.ui;
 import com.pluralsight.entities.Dealership;
-import com.pluralsight.entities.DealershipFileManager;
+import com.pluralsight.data.DealershipFileManager;
 import com.pluralsight.entities.Vehicle;
 
 import java.util.ArrayList;
@@ -36,28 +36,28 @@ public class UserInterface {
                processGetByPriceRequest();
                break;
             case 2:
-               proccessGetByMakeModelRequest();
+               processGetByMakeModelRequest();
                break;
             case 3:
-               proccessGetByYearRequest();
+               processGetByYearRequest();
                break;
             case 4:
-                proccessGetByColorRequest();
+                processGetByColorRequest();
                 break;
             case 5:
-                proccessGetByMileageRequest();
+                processGetByMileageRequest();
                 break;
             case 6:
-                proccessGetByVehicleTypeRequest();
+                processGetByVehicleTypeRequest();
                 break;
             case 7:
-                proccessGetByAllVehicleRequest();
+                processGetByAllVehicleRequest();
                 break;
             case 8:
-                proccessGetByAddVehicleRequest();
+                processGetByAddVehicleRequest();
                 break;
             case 9:
-                proccessGetByRemoveVehicleRequest();
+                processGetByRemoveVehicleRequest();
                 break;
             case 99:
                 System.out.println("Goodbye!");
@@ -92,7 +92,7 @@ public class UserInterface {
      * prompts the user for make and model calls the getVehicleByMakeModel
      * passes the returned arraylist into displayVehicleRequest to be displayed
      */
-    private void proccessGetByMakeModelRequest() {
+    private void processGetByMakeModelRequest() {
         int command;
         do{command=Console.promptForInt("""
                 1: Proceed 
@@ -112,7 +112,7 @@ public class UserInterface {
      * prompts the user for min and max Year and calls getVehicleByYear
      * send the arraylist of matched vehicles to displayVehicleRequest
      */
-    private void proccessGetByYearRequest() {
+    private void processGetByYearRequest() {
         int command;
         do{command=Console.promptForInt("""
                 1: Proceed Year Range 
@@ -132,7 +132,7 @@ public class UserInterface {
      * prompts the user for color calls the getVehicleByColor
      * passes the returned arraylist into displayVehicleRequest to be displayed
      */
-    private void proccessGetByColorRequest() {
+    private void processGetByColorRequest() {
         int command;
         do{command=Console.promptForInt("""
                 1: Proceed 
@@ -151,7 +151,7 @@ public class UserInterface {
      * prompts the user for min and max Mileage and calls getVehicleByMileage
      * send the arraylist of matched vehicles to displayVehicleRequest
      */
-    private void proccessGetByMileageRequest() {
+    private void processGetByMileageRequest() {
         int command;
         do{command=Console.promptForInt("""
                 1: Proceed Mileage Range 
@@ -172,7 +172,7 @@ public class UserInterface {
      * prompts the user for Type calls the getVehicleByVehicleType
      * passes the returned arraylist into displayVehicleRequest to be displayed
      */
-    private void proccessGetByVehicleTypeRequest() {
+    private void processGetByVehicleTypeRequest() {
         int command;
         do{command=Console.promptForInt("""
                 1: Proceed 
@@ -191,14 +191,14 @@ public class UserInterface {
     /**
      * gets all the vehicles currently in the dealership
      */
-    private void proccessGetByAllVehicleRequest() {
+    private void processGetByAllVehicleRequest() {
         displayVehicleRequest(dealership.getAllVehicle());
     }
 
     /**
      * lets user add vehicles to the dealership inventory
      */
-    private void proccessGetByAddVehicleRequest() {
+    private void processGetByAddVehicleRequest() {
         int command;
         do{command=Console.promptForInt("""
                 1: Proceed with Adding
@@ -227,7 +227,7 @@ public class UserInterface {
     /**
      * lets user remove vehicle from dealership inventory
      */
-    private void proccessGetByRemoveVehicleRequest() {
+    private void processGetByRemoveVehicleRequest() {
         int command;
         do{command=Console.promptForInt("""
                 1: Proceed with Removing
@@ -242,12 +242,11 @@ public class UserInterface {
                         dealership.removeVehicle(vehicle);
                         System.out.println(name + " was removed");
                         update();
-                        break;
                     }
                     else{
                     System.out.println("No Match Found!");
+                    }
                     break;
-                }
                 case 2:
                     break;}
         }while(command!=2);

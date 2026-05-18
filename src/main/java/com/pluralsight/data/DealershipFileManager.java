@@ -1,4 +1,7 @@
-package com.pluralsight.entities;
+package com.pluralsight.data;
+import com.pluralsight.entities.Dealership;
+import com.pluralsight.entities.Vehicle;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
